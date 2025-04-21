@@ -32,4 +32,7 @@ client.on("messageCreate", async (message) => {
   }
 });
 
+
+console.log("› DISCORD_BOT_TOKEN =", process.env.DISCORD_BOT_TOKEN);
+console.log("› N8N_WEBHOOK_URL =", process.env.N8N_WEBHOOK_URL);
 client.login(process.env.DISCORD_BOT_TOKEN);

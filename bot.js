@@ -20,7 +20,8 @@ client.on("messageCreate", async (message) => {
   console.log(
     `[${message.channel.name}] ${message.author.username}: ${message.content}`
   );
-
+  const ALLOWED_CHANNEL_ID = "1362699362945339562"; 
+  if (message.channel.id !== ALLOWED_CHANNEL_ID) return;
   // 发到 n8n webhook
   try {
     await axios.post(process.env.N8N_WEBHOOK_URL, {
@@ -32,7 +33,4 @@ client.on("messageCreate", async (message) => {
   }
 });
 
-
-console.log("› DISCORD_BOT_TOKEN =", process.env.DISCORD_BOT_TOKEN);
-console.log("› N8N_WEBHOOK_URL =", process.env.N8N_WEBHOOK_URL);
 client.login(process.env.DISCORD_BOT_TOKEN);

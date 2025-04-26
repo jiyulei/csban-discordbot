@@ -27,6 +27,7 @@ client.on("messageCreate", async (message) => {
     await axios.post(process.env.N8N_WEBHOOK_URL, {
       user: message.author.username,
       content: message.content,
+      channelId: message.channel.id,
     });
   } catch (err) {
     console.error("❌ Failed to send to n8n webhook:", err.message);
